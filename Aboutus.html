@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParrotNerds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+         .header {
+            background-color: white; /* Yellow color */
+            color: whitesmoke;
+            padding: 1em 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1em 2em;
+        }
+        .header img {
+            height: 60px;
+        }
+        .header nav {
+            flex-grow: 1;
+            text-align: left;
+        }
+        .header nav a {
+            color: black;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+         .header .demo-button {
+            background-color: darkgray;
+            color: black;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.2s, color 0.2s;
+        
+        }
+        .header .demo-button:hover {
+            background-color: lightyellow;
+            color: #222;
+        }
+        .demo-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #FFD93D; /* Warm yellow */
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.demo-button:hover {
+  background-color: #FFEA00; /* Brighter yellow on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.demo-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+        
+       
+    .footer {
+        background-color: #063758; /* Dark blue background */
+        color: white;
+        padding: 2em 1em;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; /* Distribute sections evenly */
+        gap: 2em;
+    }
+
+    .footer-section {
+        flex: 1 1 200px;
+        min-width: 200px;
+        text-align: left;
+    }
+
+    .footer-section h3 {
+       /* Center-align the headings */
+       color: white;
+        margin-bottom: 1em;
+        font-size: 1.2em;
+        text-align: left;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        /* Left-align the list */
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5em;
+    }
+
+    .footer-section ul li a {
+        color: white; /* White text color */
+        text-decoration: none;
+    }
+
+    .footer-section ul li a:hover {
+        text-decoration: underline;
+    }
+    .footer-section p {
+        color: white;
+    }
+    .social-icons {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: flex-start; /* Left-align social media icons */
+        gap: 15px;
+    }
+
+    .social-icons a {
+        color: #FFD93D; /* Yellow color for social media icons */
+        font-size: 24px;
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        line-height: 44px;
+        border-radius: 50%;
+        background-color: #063758;
+        text-align: left;
+        transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        background-color: #063758;
+        color: #1da1f2; /* Hover color */
+    }
+    .footer-social-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-social-img {
+    display: block;
+    margin: 0 ;
+    max-width: 100px;
+}
+.footer-section .social-icons {
+    justify-content: left !important;
+}
+    .footer-color-line {
+  display: flex;
+  width: 99vw;
+  height: 8px;
+  margin: 0;
+  padding: 0%;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+}
+.footer-color-line .yellow { background: #FFD93D; flex: 1; }
+.footer-color-line .darkgrey { background: #222; flex: 1; }
+.footer-color-line .white { background: #fff; flex: 1; }
+
+.ai-robotics-info-section {
+  background: #063758;
+  padding: 2em 0;
+}
+.ai-robotics-info-section .container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 ;
+  padding: 0 ;
+}
+.ai-robotics-info-section h2,
+.ai-robotics-info-section p {
+  text-align: left;
+}
+.ai-robotics-info-section h2 {
+  color: white;
+  text-align: left;
+  margin-bottom: 1em;
+}
+.ai-robotics-info-section p {
+  color: white;
+  font-size: 1.1em;
+  line-height: 1.7;
+  margin-bottom: 1em;
+  text-align: left;
+}
+      /*  .footer-logo img {
+            margin-top: 1em;
+            height: 50px;
+        } */
+        /* Global section styles */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* Backgrounds */
+.yellow-bg {
+  background-color: #fff4b0; /* soft yellow */
+}
+
+.white-bg {
+  background-color: #ffffff;
+}
+
+/* Section Headings */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: black;
+}
+
+/* Offer grid (What We Offer) */
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.offer-card {
+  background-color: #fffef3;
+  border: 2px solid #ffe066;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 217, 61, 0.3);
+}
+
+/* Vision & Mission list */
+.vision-section ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.vision-section ul li {
+  margin-bottom: 10px;
+}
+
+/* Text styles */
+p {
+  margin-bottom: 15px;
+  color: #444;
+}
+.founder-note {
+        padding: 2em;
+        background-color: white; /* Soft yellow background */
+        text-align: left;
+        border-radius: 10px;
+        margin: 0 0;
+    }
+
+    .founder-note h2 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 1em;
+    }
+
+    .founder-note p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 1em;
+    }
+
+    .founder-note strong {
+        font-size: 1.1rem;
+        color: #333;
+    }
+
+/* Responsive heading adjustments */
+@media (max-width: 600px) {
+  h2 { font-size: 1.7rem; }
+  h3 { font-size: 1.3rem; }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+    <a href="index.html">
+        <img src="logos/LOGO PN.png" alt="ParrotNerds Logo" class="header-logo"> <!-- Increased logo size -->
+    </a>
+    <nav>
+        <a href="Aboutus.html">About Us</a>
+        <a href="courses.html">Courses</a>
+        <a href="Contact.html">Contact Us</a>
+    </nav>
+    <a href="https://forms.gle/w3NLt7ZnoXY8J17r9" class="demo-button">Book a Free Demo Class</a>
+</div>
+    <section class="about-section yellow-bg">
+        <div class="container">
+          <h2>About ParrotNerds</h2>
+          <p>ParrotNerds is an innovative edtech platform focused on delivering high-impact learning in Artificial Intelligence, Robotics, and STEM education. Designed for today’s curious and future-focused students, our programs provide the tools, knowledge, and confidence they need to excel in a rapidly evolving digital world.</p>
+          <p>Our curriculum integrates AI, machine learning, robotics, and coding with real-world applications—ensuring students learn through hands-on projects, simulations, and interactive experiences.</p>
+          <p>Beyond technology, we nurture emotionally aware, balanced individuals who are prepared for life, not just work.</p>
+        </div>
+      </section>
+      
+      <section class="offer-section white-bg">
+        <div class="container">
+          <h2>What We Offer</h2>
+          <div class="offer-grid">
+            <div class="offer-card">
+              <h3>Robotics & Automation</h3>
+              <p>Explore mechanical systems, control logic, and intelligent machines. Build and program functional robots using sensors, microcontrollers, and automation workflows.</p>
+            </div>
+            <div class="offer-card">
+              <h3>Artificial Intelligence & Machine Learning</h3>
+              <p>Understand algorithms, machine learning, and ethical tech practices. Create simple AI applications while developing critical thinking and innovation skills.</p>
+            </div>
+            <div class="offer-card">
+              <h3>STEM & Coding Courses</h3>
+              <p>From beginner coding to app development and game design—our courses blend problem-solving, logic, and creativity to build tech-savvy innovators.</p>
+            </div>
+            <div class="offer-card">
+              <h3>Mental Wellness Integration</h3>
+              <p>Mindfulness, emotional resilience, and confidence-building activities are embedded in every course to support holistic development and well-being.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="vision-section yellow-bg">
+        <div class="container">
+          <h2>Our Vision & Mission</h2>
+          <h3>Our Vision</h3>
+          <p>To redefine education by creating a world where every student has access to transformative learning in AI, robotics, and mental wellness—nurturing thinkers who lead with compassion.</p>
+      
+          <h3>Our Mission</h3>
+          <ul>
+            <li>Deliver future-ready education through hands-on learning</li>
+            <li>Empower students with essential digital and life skills</li>
+            <li>Integrate mental wellness into every program</li>
+            <li>Create a safe, inclusive, inspiring learning environment</li>
+            <li>Encourage curiosity, innovation, and resilience</li>
+          </ul>
+        </div>
+      </section>
+    <section class="founder-note white-bg">
+    <div class="container">
+        <h2>Founder’s Note</h2>
+        <p>
+            I'm Abrar Sherwani, the founder of ParrotNerds. This platform was born out of a simple yet powerful belief — that learning should be engaging, effective, and accessible to everyone.
+        </p>
+        <p>
+            Over the years, I’ve seen how the right guidance and a nurturing environment can transform a student’s confidence and potential. At ParrotNerds, we don’t just teach — we inspire. Whether it’s through our interactive courses, personalized support, or creative teaching methods, our goal is to ignite curiosity and build lasting skills.
+        </p>
+        <p>
+            Thank you for being a part of our journey. We’re excited to help you or your child discover the joy of learning.
+        </p>
+        <p>
+            Warm regards,<br>
+            <strong>Abrar Sherwani</strong><br>
+            Founder, ParrotNerds
+        </p>
+    </div>
+</section>
+      
+
+
+
+
+
+
+      <div class="footer">
+        <div class="footer-container">
+            <!-- Explore Section -->
+            <div class="footer-section">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="index.html">Blogs</a></li>
+                    <li><a href="#business">Business</a></li>
+                    <li><a href="#refund-policy">Refund Policy</a></li>
+                </ul>
+            </div>
+    
+            <!-- Resources Section -->
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#public-speaking">Public Speaking</a></li>
+                    <li><a href="#creative-writing">Creative Writing</a></li>
+                    <li><a href="#phonics">Phonics</a></li>
+                    <li><a href="#ai">Artificial intelligence</a></li>
+                    <li><a href="#robotics">Robotics</a></li>
+                </ul>
+            </div>
+           <div class="footer-section">
+  <h3>Reach Us At</h3>
+  <p>
+    <i class="fas fa-phone-alt" style="margin-right:8px;"></i>
+    +91 9133900002
+  </p>
+  <p>
+    <i class="fas fa-envelope" style="margin-right:8px;"></i>
+    <a href="mailto:admissions@parrotnerds.com" style="color:white; text-decoration:underline;">
+      admissions@parrotnerds.com
+    </a>
+  </p>
+</div>
+            <!-- Social Media Section -->
+            <div class="footer-section">
+                <img src="logos/parrotbg.png" alt="Footer Mascot" class="footer-social-img">
+                <h3>Social Media</h3>
+                <ul class="social-icons">
+                    <li><a href=" https://www.facebook.com/profile.php?id=61576131865999#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=" https://www.linkedin.com/company/parrot-nerds/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.instagram.com/parrotnerdss" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                  </ul>
+            </div>
+    
+            <!-- Logo Section -->
+           <!--   <div class="footer-logo">
+                <img src="logos\PELPL LOGO.jpg" alt="ParrotNerds Logo">Replace 'logo.png' with the actual logo file path 
+            </div> -->
+    </div>
+    
+    
+  <div class="footer-color-line">
+  <div class="yellow"></div>
+  <div class="darkgrey"></div>
+  <div class="white"></div>
+</div>
+
+<section class="ai-robotics-info-section">
+  <div class="container">
+    <h2>The Need for AI and Robotics Classes</h2>
+    <p>
+      In today’s rapidly evolving world, understanding Artificial Intelligence and Robotics is no longer a luxury—it’s a necessity. As technology becomes an integral part of every industry, early exposure to AI and robotics can empower both children and adults to stay ahead of the curve.
+    </p>
+    <p>
+      ParrotNerds offers 1:1 Online AI and Robotics Courses that are carefully crafted to introduce learners to the fundamentals of intelligent systems, automation, and real-world applications. Our programs are designed to nurture curiosity, boost problem-solving skills, and encourage innovation from an early age.
+    </p>
+    <p>
+      Whether you're a curious student or a forward-thinking professional, gaining hands-on experience with AI and robotics opens doors to future-ready opportunities. At ParrotNerds, we believe in building a strong technological foundation that will help you lead in the digital age.
+    </p>
+    <p>
+      Our interactive and project-based learning model ensures that learners not only understand theoretical concepts but also apply them through real-time simulations, coding, and robotic design. From beginner to advanced levels, our courses are tailored to match the learner’s pace and interests.
+    </p>
+    <p>
+      So, join our AI and Robotics course today—and let ParrotNerds guide you toward a future where you don't just use technology—you create it.
+    </p>
+  </div>
+</section>
+ 
+    
+</body>
+</html>

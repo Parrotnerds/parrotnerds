@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParrotNerds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightgrey;
+        }
+        .header {
+            background-color: white; /* Yellow color */
+            color: whitesmoke;
+            padding: 1em 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1em 2em;
+        }
+        .header img {
+            height: 60px;
+        }
+        .header nav {
+            flex-grow: 1;
+            text-align: left;
+        }
+        .header nav a {
+            color: black;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .header .demo-button {
+            background-color: darkgray;
+            color: black;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.2s, color 0.2s;
+        
+        }
+        .header .demo-button:hover {
+            background-color: lightyellow;
+            color: #222;
+        }
+        
+        .blog-section {
+  padding: 4rem 2rem;
+  background: whitesmoke; /* Dark background for contrast */
+  color: #f7f7f7;
+}
+
+.blog-section {
+        padding: 0;
+        margin: 0;
+        background: whitesmoke;
+    }
+    .section-title {
+        text-align: center;
+        color: #FFD93D; /* Warm Yellow */
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+    .blog-container {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    .blog-item {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem;
+        border-radius: 0;
+        background-color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .blog-item:nth-child(4n-3),
+    .blog-item:nth-child(4n-2) {
+        background-color: lightyellow; /* Light yellow for the first two blogs in each group of four */
+    }
+    .blog-item:nth-child(4n-1),
+    .blog-item:nth-child(4n) {
+        background-color: lightgrey; /* Light grey for the next two blogs in each group of four */
+    }
+    .blog-item.reverse {
+        flex-direction: row-reverse; /* Reverse image and text */
+    }
+    .blog-image {
+       display: flex;
+        justify-content: center; /* Center the image horizontally */
+        align-items: center; /* Center the image vertically */
+        max-width: 300px; /* Ensure the container matches the image size */
+        margin: 0 auto; /* Center the container */
+    }
+    .blog-image img {
+        width: 100%; /* Make the image responsive */
+        max-width: 300px; /* Set a consistent maximum width */
+        height: 200px; /* Set a consistent height */
+        object-fit: cover; /* Ensure the image fills the container while maintaining aspect ratio */
+        border-radius: 0; /* Optional: Add rounded corners */
+        display: block; /* Remove inline spacing issues */
+        margin: 0 auto; /* Center the image */
+    }
+    .blog-text {
+        flex: 2;
+    }
+    .blog-text h3 {
+        font-size: 1.8rem;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+    .blog-text p {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .blog-item,
+  .blog-item.reverse {
+    flex-direction: column;
+  }
+
+  .blog-image img {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+.demo-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #FFD93D; /* Warm yellow */
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.demo-button:hover {
+  background-color: #FFEA00; /* Brighter yellow on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.demo-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.super-star {
+        padding: 2em;
+        background-color: darkgray;
+        text-align: center;
+    }
+    .super-star h2 {
+        margin-bottom: 1em;
+        color: #333;
+    }
+    .scroll-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 1em;
+        padding: 1em 0;
+    }
+    .scroll-container::-webkit-scrollbar {
+        height: 8px;
+    }
+    .scroll-container::-webkit-scrollbar-thumb {
+        background-color: #4CAF50;
+        border-radius: 4px;
+    }
+    .star {
+        flex: 0 0 auto;
+        width: 150px;
+        text-align: center;
+    }
+    .star img {
+        max-width: 100%; /* Set maximum width */
+        max-height: 100px; /* Set maximum height */
+        width: auto; /* Ensure image scales proportionally */
+        height: auto; /* Ensure image scales proportionally */
+        object-fit: contain; /* Fit entire image inside box WITHOUT cropping */
+        border-radius: 10px; /* Add rounded corners */
+        border: 3px solid #FFD700; /* Add a yellow border */
+    }
+    .star p {
+        margin-top: 0.5em;
+        color: lightyellow;
+        font-size: 1em;
+    }
+    
+    .footer {
+        background-color: #063758; /* Dark blue background */
+        color: white;
+        padding: 2em 1em;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; /* Distribute sections evenly */
+        gap: 2em;
+    }
+
+    .footer-section {
+        flex: 1 1 200px;
+        min-width: 200px;
+        text-align: left;
+    }
+
+    .footer-section h3 {
+       /* Center-align the headings */
+        margin-bottom: 1em;
+        font-size: 1.2em;
+        text-align: left;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        /* Left-align the list */
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5em;
+    }
+
+    .footer-section ul li a {
+        color: white; /* White text color */
+        text-decoration: none;
+    }
+
+    .footer-section ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .social-icons {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: flex-start; /* Left-align social media icons */
+        gap: 15px;
+    }
+
+    .social-icons a {
+        color: #FFD93D; /* Yellow color for social media icons */
+        font-size: 24px;
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        line-height: 44px;
+        border-radius: 50%;
+        background-color: #063758;
+        text-align: left;
+        transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        background-color: #063758;
+        color: #1da1f2; /* Hover color */
+    }
+    .footer-social-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-social-img {
+    display: block;
+    margin: 0 ;
+    max-width: 100px;
+}
+.footer-section .social-icons {
+    justify-content: left !important;
+}
+    .footer-color-line {
+ display: flex;
+  width: 99vw;
+  height: 8px;
+  margin: 0;
+  padding: 0%;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+}
+.footer-color-line .yellow { background: #FFD93D; flex: 1; }
+.footer-color-line .darkgrey { background: #222; flex: 1; }
+.footer-color-line .white { background: #fff; flex: 1; }
+
+.ai-robotics-info-section {
+  background: #063758;
+  padding: 2em 0;
+}
+.ai-robotics-info-section .container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 ;
+  padding: 0 ;
+}
+.ai-robotics-info-section h2,
+.ai-robotics-info-section p {
+  text-align: left;
+}
+.ai-robotics-info-section h2 {
+  color: white;
+  text-align: left;
+  margin-bottom: 1em;
+}
+.ai-robotics-info-section p {
+  color: white;
+  font-size: 1.1em;
+  line-height: 1.7;
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+     /*   .footer-logo img {
+            margin-top: 1em;
+            height: 50px;
+        } */
+
+   /*     .footer-color-line {
+  display: flex;
+  width: 100%;
+  height: 8px;
+  margin-top: 0;
+}
+.footer-color-line .color-block {
+  flex: 1;
+}
+.footer-color-line .yellow {
+  background: #FFD93D;
+}
+.footer-color-line .darkgrey {
+  background: #222;
+}
+.footer-color-line .white {
+  background: #fff;
+} */
+        
+    </style>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html">
+        <img src="logos/LOGO PN.png" alt="ParrotNerds Logo" class="header-logo"> <!-- Increased logo size -->
+    </a>
+    <nav>
+        <a href="Aboutus.html">About Us</a>
+        <a href="courses.html">Courses</a>
+        <a href="Contact.html">Contact Us</a>
+    </nav>
+    <a href="https://forms.gle/w3NLt7ZnoXY8J17r9" class="demo-button">Book a Free Demo Class</a>
+</div>
+    <section class="blog-section">
+     <!-- <h2 class="section-title">Our Blogs</h2> --> 
+      
+        <div class="blog-container">
+          <!-- Blog 1 -->
+          <div class="blog-item">
+            <div class="blog-text">
+              <h3>Shaping the Innovators of Tomorrow: Why Teaching Robotics is More Than Just Building Robots</h3>
+              <p><strong>By Amrit Vaani Sharma</strong></p>
+              <p>As an educator in the field of robotics, I’ve seen firsthand how it sparks creativity, collaboration, and critical thinking in young minds. Robotics isn’t just about assembling parts and coding; it’s about problem-solving, perseverance, and discovering new ways of thinking. At ParrotNerds, we nurture future leaders who will not only understand how technology works but will create it. I’m proud to be part of this journey where students don’t just learn—they innovate.</p>
+              <a href="https://forms.gle/w3NLt7ZnoXY8J17r9" class="demo-button">Book a Free Demo Class</a>
+
+            </div>
+            <div class="blog-image">
+              <img src="blogs-teachers/Amrit 2.PNG" alt="Teaching Robotics">
+            </div>
+          </div>
+      
+          <!-- Blog 2 -->
+          <div class="blog-item reverse">
+            <div class="blog-text">
+              <h3>From Algorithms to Empathy: Teaching AI to the Next Generation</h3>
+              <p><strong>By Sneha Ojha</strong></p>
+              <p>Artificial Intelligence is no longer a futuristic concept; it’s a reality shaping our daily lives. Teaching AI to young learners at ParrotNerds is about more than just code. It’s about helping them understand how decisions are made by machines, and how those decisions can impact the world. In my classroom, we explore AI in a way that fosters critical thinking and ethical responsibility. It’s not just about teaching algorithms—it’s about teaching empathy and responsibility in the tech space.</p>
+              <a href="https://forms.gle/w3NLt7ZnoXY8J17r9" class="demo-button">Book a Free Demo Class</a>
+
+            </div>
+            <div class="blog-image">
+              <img src="blogs-teachers/Sneha 2.PNG" alt="Teaching AI">
+            </div>
+          </div>
+      
+          <!-- Blog 3 -->
+          <div class="blog-item">
+            <div class="blog-text">
+              <h3>Why STEM Education is Key to Building Problem Solvers</h3>
+              <p><strong>By Pooja Chauhan</strong></p>
+              <p>When I first started teaching STEM, I realized how much the world needs creative problem-solvers. The key to success in the digital age isn’t just memorizing facts, but knowing how to apply knowledge to real-world problems. At ParrotNerds, we approach STEM with this mindset—equipping students with both the technical skills and the problem-solving mentality they need to thrive in the 21st century. It’s inspiring to see students tackle complex challenges with a solution-oriented approach.</p>
+              <a href="https://forms.gle/w3NLt7ZnoXY8J17r9" class="demo-button">Book a Free Demo Class</a>
+            </div>
+            <div class="blog-image">
+              <img src="blogs-teachers/pooja 2.PNG" alt="STEM Education">
+            </div>
+          </div>
+      
+          <!-- Blog 4 -->
+          <div class="blog-item reverse">
+            <div class="blog-text">
+              <h3>The Importance of Mental Wellness in Education: Balancing Minds with Technology</h3>
+              <p><strong>By Alisha Ali</strong></p>
+              <p>In today’s fast-paced world, it’s easy to forget that education is as much about emotional well-being as it is about academics. As a teacher, I see how the pressure to excel can sometimes affect students’ mental health. That’s why I’m passionate about ParrotNerds’ unique approach to integrating mental wellness into tech education. By providing mindfulness exercises and emotional intelligence lessons alongside coding and robotics, we ensure that students are not only technically capable but also emotionally resilient and confident in their abilities.</p>
+              <a href="https://forms.gle/w3NLt7ZnoXY8J17r9" class="demo-button">Book a Free Demo Class</a>
+
+            </div>
+            <div class="blog-image">
+              <img src="blogs-teachers/Alisha 2.PNG" alt="Mental Wellness in Education">
+            </div>
+          </div>
+      
+          <!-- Blog 5 -->
+          <div class="blog-item">
+            <div class="blog-text">
+              <h3>Building the Builders of Tomorrow: Teaching Robotics to Kids</h3>
+              <p><strong>By Sumbul S.</strong></p>
+              <p>Teaching kids how to build robots is one of the most rewarding experiences of my career. It’s about more than the excitement of building something from scratch—it’s about teaching young minds to approach challenges with determination and creativity. At ParrotNerds, I see students taking on projects that seem impossible at first, and through perseverance and collaboration, they succeed. It’s not just the robots that are built—it’s the confidence, curiosity, and problem-solving mindset that lasts a lifetime.</p>
+              <a href="https://forms.gle/w3NLt7ZnoXY8J17r9" class="demo-button">Book a Free Demo Class</a>
+
+            </div>
+            <div class="blog-image">
+              <img src="blogs-teachers/sumbul 2.PNG" alt="Teaching Robotics to Kids">
+            </div>
+          </div>
+      
+          <!-- Blog 6 -->
+          <div class="blog-item reverse">
+            <div class="blog-text">
+              <h3>The Future of Education: How Teaching AI and Robotics is Changing the Game</h3>
+              <p><strong>By ParrotNerds Team</strong></p>
+              <p>The future of education is technology-driven, and AI and robotics are at the forefront of this transformation. As an educator, I’m excited to see how these subjects help students think beyond textbooks and discover how the world works. Through ParrotNerds, we’ve seen firsthand how teaching AI and robotics not only boosts technical skills but also ignites a passion for innovation and creativity in young learners. Our goal is to prepare students for the future—one where they’re not just consumers of technology, but creators of it.</p>
+              <a href="https://forms.gle/w3NLt7ZnoXY8J17r9" class="demo-button">Book a Free Demo Class</a>
+
+            </div>
+            <div class="blog-image">
+              <img src="blogs-teachers/teamparrotnerds.jpeg" alt="Future of Education">
+            </div>
+          </div>
+      
+        </div>
+      </section>
+      
+    <div class="super-star">
+        <h2>Our Super Star</h2>
+        <div class="scroll-container">
+            <div class="star">
+                <img src="superstarkids/Khushi.jpeg" alt="Star 1"> <!-- Replace 'star1.jpg' with the actual image file path -->
+                <p>Khushi</p>
+            </div>
+            <div class="star">
+                <img src="superstarkids/parinaaz Kaur.jpeg" alt="Star 2"> <!-- Replace 'star2.jpg' with the actual image file path -->
+                <p>Parinaaz Kaur</p>
+            </div>
+            <div class="star">
+                <img src="superstarkids/ishita student.jpeg" alt="Star 3"> <!-- Replace 'star3.jpg' with the actual image file path -->
+                <p>Ishita</p>
+            </div>
+         <div class="star">
+                <img src="superstarkids/Aaminah.jpeg" alt="Star 4"> 
+                <p>Aaminah</p>
+            </div>
+             <div class="star">
+                <img src="superstarkids/Aaradhya.jpeg" alt="Star 4"> 
+                <p>Aaradhya</p>
+            </div> 
+             <div class="star">
+                <img src="superstarkids/Additri.jpeg" alt="Star 4"> 
+                <p>Additri</p>
+            </div>
+             <div class="star">
+                <img src="superstarkids/Ayushman Sahoo.jpeg" alt="Star 4"> 
+                <p>Ayushman Sahoo</p>
+            </div>
+            <div class="star">
+                <img src="superstarkids/Dishita.jpeg" alt="Star 4"> 
+                <p>Dishita</p>
+            </div>
+                <div class="star">
+                <img src="superstarkids/K Hansini.jpeg" alt="Star 4"> 
+                <p>K Hansini</p>
+                </div>
+                
+              <div class="star">
+                <img src="superstarkids/Rahul.jpeg" alt="Star 4"> 
+                <p>Rahul</p>
+              </div>
+                <div class="star">
+                <img src="superstarkids/Sohail 2.jpeg" alt="Star 4"> 
+                <p>Sohail</p>
+                </div>
+                <div class="star">
+                <img src="superstarkids/Annu wb pn.jpeg" alt="Star 4"> 
+                <p>Annu</p> 
+                </div>
+                <div class="star">
+                <img src="superstarkids/Tejasweeni wb pn.jpeg" alt="Star 4"> 
+                <p>Tejasweeni</p>
+                </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-container">
+            <!-- Explore Section -->
+            <div class="footer-section">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="index.html">Blogs</a></li>
+                    <li><a href="#business">Business</a></li>
+                    <li><a href="#refund-policy">Refund Policy</a></li>
+                </ul>
+            </div>
+    
+            <!-- Resources Section -->
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#public-speaking">Public Speaking</a></li>
+                    <li><a href="#creative-writing">Creative Writing</a></li>
+                    <li><a href="#phonics">Phonics</a></li>
+                    <li><a href="#ai">Artificial intelligence</a></li>
+                    <li><a href="#robotics">Robotics</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+  <h3>Reach Us At</h3>
+  <p>
+    <i class="fas fa-phone-alt" style="margin-right:8px;"></i>
+    +91 9133900002
+  </p>
+  <p>
+    <i class="fas fa-envelope" style="margin-right:8px;"></i>
+    <a href="mailto:admissions@parrotnerds.com" style="color:white; text-decoration:underline;">
+      admissions@parrotnerds.com
+    </a>
+  </p>
+</div>
+    
+            <!-- Social Media Section -->
+            <div class="footer-section">
+                <img src="logos/parrotbg.png" alt="Footer Mascot" class="footer-social-img">
+                <h3>Social Media</h3>
+                <ul class="social-icons">
+                    <li><a href=" https://www.facebook.com/profile.php?id=61576131865999#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=" https://www.linkedin.com/company/parrot-nerds/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.instagram.com/parrotnerdss" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                  </ul>
+            </div>
+    
+            <!-- Logo Section -->
+           <!--   <div class="footer-logo">
+                <img src="logos\PELPL LOGO.jpg" alt="ParrotNerds Logo">Replace 'logo.png' with the actual logo file path 
+            </div> -->
+    </div>
+    
+    
+  <div class="footer-color-line">
+  <div class="yellow"></div>
+  <div class="darkgrey"></div>
+  <div class="white"></div>
+</div>
+
+<section class="ai-robotics-info-section">
+  <div class="container">
+    <h2>The Need for AI and Robotics Classes</h2>
+    <p>
+      In today’s rapidly evolving world, understanding Artificial Intelligence and Robotics is no longer a luxury—it’s a necessity. As technology becomes an integral part of every industry, early exposure to AI and robotics can empower both children and adults to stay ahead of the curve.
+    </p>
+    <p>
+      ParrotNerds offers 1:1 Online AI and Robotics Courses that are carefully crafted to introduce learners to the fundamentals of intelligent systems, automation, and real-world applications. Our programs are designed to nurture curiosity, boost problem-solving skills, and encourage innovation from an early age.
+    </p>
+    <p>
+      Whether you're a curious student or a forward-thinking professional, gaining hands-on experience with AI and robotics opens doors to future-ready opportunities. At ParrotNerds, we believe in building a strong technological foundation that will help you lead in the digital age.
+    </p>
+    <p>
+      Our interactive and project-based learning model ensures that learners not only understand theoretical concepts but also apply them through real-time simulations, coding, and robotic design. From beginner to advanced levels, our courses are tailored to match the learner’s pace and interests.
+    </p>
+    <p>
+      So, join our AI and Robotics course today—and let ParrotNerds guide you toward a future where you don't just use technology—you create it.
+    </p>
+  </div>
+</section>
+ 
+    
+</body>
+</html>

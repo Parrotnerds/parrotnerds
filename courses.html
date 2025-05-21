@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParrotNerds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+         .header {
+            background-color: white; /* Yellow color */
+            color: whitesmoke;
+            padding: 1em 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1em 2em;
+        }
+        .header img {
+            height: 60px;
+        }
+        .header nav {
+            flex-grow: 1;
+            text-align: left;
+        }
+        .header nav a {
+            color: black;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .header .demo-button {
+            background-color: darkgray;
+            color: black;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.2s, color 0.2s;
+        
+        }
+        .header .demo-button:hover {
+            background-color: lightyellow;
+            color: #222;
+        }
+        .demo-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #FFD93D; /* Warm yellow */
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.demo-button:hover {
+  background-color: #FFEA00; /* Brighter yellow on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.demo-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+        
+        
+   .footer {
+        background-color: #063758; /* Dark blue background */
+        color: white;
+        padding: 2em 1em;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; /* Distribute sections evenly */
+        gap: 2em;
+    }
+
+    .footer-section {
+        flex: 1 1 200px;
+        min-width: 200px;
+        text-align: left;
+    }
+
+    .footer-section h3 {
+       /* Center-align the headings */
+        margin-bottom: 1em;
+        font-size: 1.2em;
+        text-align: left;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        /* Left-align the list */
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5em;
+    }
+
+    .footer-section ul li a {
+        color: white; /* White text color */
+        text-decoration: none;
+    }
+
+    .footer-section ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .social-icons {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: flex-start; /* Left-align social media icons */
+        gap: 15px;
+    }
+
+    .social-icons a {
+        color: #FFD93D; /* Yellow color for social media icons */
+        font-size: 24px;
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        line-height: 44px;
+        border-radius: 50%;
+        background-color: #063758;
+        text-align: left;
+        transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        background-color: #063758;
+        color: #1da1f2; /* Hover color */
+    }
+    .footer-social-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-social-img {
+    display: block;
+    margin: 0 ;
+    max-width: 100px;
+}
+.footer-section .social-icons {
+    justify-content: left !important;
+}
+    .footer-color-line {
+ display: flex;
+  width: 99vw;
+  height: 8px;
+  margin: 0;
+  padding: 0%;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+}
+.footer-color-line .yellow { background: #FFD93D; flex: 1; }
+.footer-color-line .darkgrey { background: #222; flex: 1; }
+.footer-color-line .white { background: #fff; flex: 1; }
+
+.ai-robotics-info-section {
+  background: #063758;
+  padding: 2em 0;
+}
+.ai-robotics-info-section .container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 ;
+  padding: 0 ;
+}
+.ai-robotics-info-section h2,
+.ai-robotics-info-section p {
+  text-align: left;
+}
+.ai-robotics-info-section h2 {
+  color: white;
+  text-align: left;
+  margin-bottom: 1em;
+}
+.ai-robotics-info-section p {
+  color: white;
+  font-size: 1.1em;
+  line-height: 1.7;
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+       /* .footer-logo img {
+            margin-top: 1em;
+            height: 50px;
+        } */
+
+        h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+
+  .courses-list {
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.8; /* Add spacing between lines */
+    color: #333; /* Text color */
+  }
+
+  .course-item {
+    padding: 20px;
+    margin-bottom: 1.5rem; /* Add spacing between courses */
+    border-radius: 10px; /* Slightly rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
+  }
+
+  .course-item h3 {
+    font-size: 1.5rem;
+    color: #4CAF50; /* Green heading color */
+    margin-bottom: 0.5rem;
+  }
+
+  .course-item p {
+    margin: 0;
+    color: #555; /* Subtle text color */
+  }
+
+  .light-yellow {
+    background-color: #FFFACD; /* Light yellow background */
+  }
+
+  .light-grey {
+    background-color: #F5F5F5; /* Light grey background */
+  }
+
+  /* Add hover effect for a modern look */
+  .course-item:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+
+    </style>
+</head>
+<body>
+   <div class="header">
+    <a href="index.html">
+        <img src="logos/LOGO PN.png" alt="ParrotNerds Logo" class="header-logo"> <!-- Increased logo size -->
+    </a>
+    <nav>
+        <a href="Aboutus.html">About Us</a>
+        <a href="courses.html">Courses</a>
+        <a href="Contact.html">Contact Us</a>
+    </nav>
+    <a href="https://forms.gle/w3NLt7ZnoXY8J17r9" class="demo-button">Book a Free Demo Class</a>
+</div>
+
+    <h2>Our Courses at ParrotNerds</h2>
+
+    <div class="courses-list">
+      <div class="course-item light-yellow">
+        <h3>Artificial Intelligence</h3>
+        <p>The Artificial Intelligence (AI) course at ParrotNerds offers an immersive dive into the world of intelligent systems, equipping students with the knowledge to understand and create their own AI models. Students begin by learning the foundational principles of AI, including machine learning, neural networks, deep learning, and natural language processing. They explore how AI impacts industries like healthcare, finance, entertainment, and automotive, and apply their knowledge through hands-on projects.</p>
+      </div>
+      <div class="course-item light-grey">
+        <h3>Robotics & Machinery</h3>
+        <p>This course ignites curiosity and builds practical skills in robotics, automation, and machine design. Students learn mechanical design, kinematics, sensors, and robot programming to perform tasks ranging from simple movements to complex actions.</p>
+      </div>
+      <div class="course-item light-yellow">
+        <h3>Information Technology (IT)</h3>
+        <p>Students explore computer systems, networking, programming, web development, and cybersecurity. They learn programming languages like Python, Java, and C++, and build websites using HTML, CSS, JavaScript, and backend tech.</p>
+      </div>
+      <div class="course-item light-grey">
+        <h3>Public Speaking</h3>
+        <p>Students build confidence and master the art of engaging audiences. The course covers overcoming stage fright, organizing speeches, vocal variety, body language, and tailoring speeches for different audiences.</p>
+      </div>
+      <div class="course-item light-yellow">
+        <h3>Creative Writing</h3>
+        <p>Students explore storytelling through fiction, non-fiction, poetry, and drama. They learn character development, plot structuring, dialogue creation, and vivid descriptions while refining drafts into polished pieces.</p>
+      </div>
+      <div class="course-item light-grey">
+        <h3>Phonics & Abacus</h3>
+        <p>Young learners build literacy and math skills. Phonics teaches letter-sound relationships to improve reading fluency and pronunciation. Fun lessons help recognize letter sounds and blend them into words.</p>
+      </div>
+      <div class="course-item light-yellow">
+        <h3>Mathematics & Vedic Math</h3>
+        <p>Students build strong foundations in algebra, geometry, calculus, and statistics. Vedic Math techniques teach rapid mental calculations, simplifying algebra, and creative problem-solving.</p>
+      </div>
+      <div class="course-item light-grey">
+        <h3>Monthly Home Tuitions</h3>
+        <p>Personalized, one-on-one instruction tailored to students’ needs. Tutors provide targeted lessons in school subjects and specialized topics like AI, Robotics, or Public Speaking.</p>
+      </div>
+    </div>
+    
+<!--<h2>Our Courses at ParrotNerds</h2>
+
+<div class="courses-container">
+  <div class="course-block" data-course="ai">Artificial Intelligence</div>
+  <div class="course-block" data-course="robotics">Robotics & Machinery</div>
+  <div class="course-block" data-course="it">Information Technology (IT)</div>
+  <div class="course-block" data-course="public-speaking">Public Speaking</div>
+  <div class="course-block" data-course="creative-writing">Creative Writing</div>
+  <div class="course-block" data-course="phonics-abacus">Phonics & Abacus</div>
+  <div class="course-block" data-course="vedic-math">Mathematics & Vedic Math</div>
+  <div class="course-block" data-course="home-tuition">Monthly Home Tuitions</div>
+</div>
+
+<div id="course-details-container"></div>
+
+<script>
+  const courseBlocks = document.querySelectorAll('.course-block');
+  const detailsContainer = document.getElementById('course-details-container');
+
+  const courseDetails = {
+    "ai": `
+      <h3>Artificial Intelligence Course at ParrotNerds</h3>
+      <p>The Artificial Intelligence (AI) course at ParrotNerds offers an immersive dive into the world of intelligent systems, equipping students with the knowledge to understand and create their own AI models. Students begin by learning the foundational principles of AI, including machine learning, neural networks, deep learning, and natural language processing. They explore how AI impacts industries like healthcare, finance, entertainment, and automotive, and apply their knowledge through hands-on projects.</p>
+      <p>Throughout the course, students build AI applications, train machine learning models, and analyze datasets. They solve real-world challenges like image recognition, speech analysis, and predictive analytics, while also discussing the ethical implications of AI and its societal impact. By the end of the course, students develop the skills to implement AI solutions and innovate with AI technologies.</p>
+    `,
+    "robotics": `
+      <h3>Robotics & Machinery Course at ParrotNerds</h3>
+      <p>This course ignites curiosity and builds practical skills in robotics, automation, and machine design. Students learn mechanical design, kinematics, sensors, and robot programming to perform tasks ranging from simple movements to complex actions.</p>
+      <p>Hands-on projects include building and programming robots, experimenting with sensors, and exploring automation concepts. Team projects involve designing functional robotic systems like autonomous vehicles. Students also develop problem-solving skills to troubleshoot and optimize robots, preparing for careers in robotics, automation, or entrepreneurship.</p>
+    `,
+    "it": `
+      <h3>Information Technology (IT) Course at ParrotNerds</h3>
+      <p>Students explore computer systems, networking, programming, web development, and cybersecurity. They learn programming languages like Python, Java, and C++, and build websites using HTML, CSS, JavaScript, and backend tech.</p>
+      <p>The course introduces cybersecurity fundamentals like data protection and encryption. Through real-world projects, students gain skills to troubleshoot IT systems and prepare for careers in software development, network administration, or IT consulting.</p>
+    `,
+    "public-speaking": `
+      <h3>Public Speaking Course at ParrotNerds</h3>
+      <p>Students build confidence and master the art of engaging audiences. The course covers overcoming stage fright, organizing speeches, vocal variety, body language, and tailoring speeches for different audiences.</p>
+      <p>Practical exercises include speech delivery, mock debates, persuasive speeches, and storytelling. By course end, students will confidently communicate in academic and professional settings.</p>
+    `,
+    "creative-writing": `
+      <h3>Creative Writing Course at ParrotNerds</h3>
+      <p>Students explore storytelling through fiction, non-fiction, poetry, and drama. They learn character development, plot structuring, dialogue creation, and vivid descriptions while refining drafts into polished pieces.</p>
+      <p>The course introduces techniques like symbolism, foreshadowing, and imagery. Whether interested in novels, short stories, or poetry, students gain essential tools to express creativity and strengthen writing abilities.</p>
+    `,
+    "phonics-abacus": `
+      <h3>Phonics & Abacus Course at ParrotNerds</h3>
+      <p>Young learners build literacy and math skills. Phonics teaches letter-sound relationships to improve reading fluency and pronunciation. Fun lessons help recognize letter sounds and blend them into words.</p>
+      <p>The Abacus portion enhances mental math skills. Students perform arithmetic using an abacus, improving calculation speed, memory, and concentration. The course sets a solid foundation for academic success in early years.</p>
+    `,
+    "vedic-math": `
+      <h3>Mathematics & Vedic Mathematics Course at ParrotNerds</h3>
+      <p>Students build strong foundations in algebra, geometry, calculus, and statistics. Vedic Math techniques teach rapid mental calculations, simplifying algebra, and creative problem-solving.</p>
+      <p>The combination of traditional and Vedic methods deepens understanding and boosts confidence. Ideal for students aiming to excel in math and enhance mental agility.</p>
+    `,
+    "home-tuition": `
+      <h3>Monthly Home Tuitions at ParrotNerds</h3>
+      <p>Personalized, one-on-one instruction tailored to students’ needs. Tutors provide targeted lessons in school subjects and specialized topics like AI, Robotics, or Public Speaking.</p>
+      <p>Lessons are customized to match learning pace, supported by extra practice and resources. Ideal for students needing individualized attention to excel academically or explore new interests in a comfortable setting.</p>
+    `
+  };
+
+  courseBlocks.forEach(block => {
+    block.addEventListener('click', () => {
+      const selectedCourse = block.getAttribute('data-course');
+      detailsContainer.innerHTML = `<div class="course-details active">${courseDetails[selectedCourse]}</div>`;
+
+      // Smooth scroll to details
+      detailsContainer.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script> -->
+
+
+    
+<div class="footer">
+    <div class="footer-container">
+        <!-- Explore Section -->
+        <div class="footer-section">
+            <h3>Explore</h3>
+            <ul>
+                <li><a href="Contact.html">Contact Us</a></li>
+                <li><a href="Aboutus.html">About Us</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="index.html">Blogs</a></li>
+                <li><a href="#business">Business</a></li>
+                <li><a href="#refund-policy">Refund Policy</a></li>
+            </ul>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="footer-section">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="#public-speaking">Public Speaking</a></li>
+                <li><a href="#creative-writing">Creative Writing</a></li>
+                <li><a href="#phonics">Phonics</a></li>
+                <li><a href="#ai">Artificial intelligence</a></li>
+                <li><a href="#robotics">Robotics</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+  <h3>Reach Us At</h3>
+  <p>
+    <i class="fas fa-phone-alt" style="margin-right:8px;"></i>
+    +91 9133900002
+  </p>
+  <p>
+    <i class="fas fa-envelope" style="margin-right:8px;"></i>
+    <a href="mailto:admissions@parrotnerds.com" style="color:white; text-decoration:underline;">
+      admissions@parrotnerds.com
+    </a>
+  </p>
+</div>
+        <!-- Social Media Section -->
+            <div class="footer-section">
+                <img src="logos/parrotbg.png" alt="Footer Mascot" class="footer-social-img">
+                <h3>Social Media</h3>
+                <ul class="social-icons">
+                    <li><a href=" https://www.facebook.com/profile.php?id=61576131865999#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=" https://www.linkedin.com/company/parrot-nerds/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.instagram.com/parrotnerdss" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                  </ul>
+            </div>
+    
+            <!-- Logo Section -->
+           <!--   <div class="footer-logo">
+                <img src="logos\PELPL LOGO.jpg" alt="ParrotNerds Logo">Replace 'logo.png' with the actual logo file path 
+            </div> -->
+    </div>
+    
+    
+  <div class="footer-color-line">
+  <div class="yellow"></div>
+  <div class="darkgrey"></div>
+  <div class="white"></div>
+</div>
+
+<section class="ai-robotics-info-section">
+  <div class="container">
+    <h2>The Need for AI and Robotics Classes</h2>
+    <p>
+      In today’s rapidly evolving world, understanding Artificial Intelligence and Robotics is no longer a luxury—it’s a necessity. As technology becomes an integral part of every industry, early exposure to AI and robotics can empower both children and adults to stay ahead of the curve.
+    </p>
+    <p>
+      ParrotNerds offers 1:1 Online AI and Robotics Courses that are carefully crafted to introduce learners to the fundamentals of intelligent systems, automation, and real-world applications. Our programs are designed to nurture curiosity, boost problem-solving skills, and encourage innovation from an early age.
+    </p>
+    <p>
+      Whether you're a curious student or a forward-thinking professional, gaining hands-on experience with AI and robotics opens doors to future-ready opportunities. At ParrotNerds, we believe in building a strong technological foundation that will help you lead in the digital age.
+    </p>
+    <p>
+      Our interactive and project-based learning model ensures that learners not only understand theoretical concepts but also apply them through real-time simulations, coding, and robotic design. From beginner to advanced levels, our courses are tailored to match the learner’s pace and interests.
+    </p>
+    <p>
+      So, join our AI and Robotics course today—and let ParrotNerds guide you toward a future where you don't just use technology—you create it.
+    </p>
+  </div>
+</section>
+ 
+    
+</body>
+</html>
